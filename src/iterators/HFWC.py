@@ -18,6 +18,16 @@ class ClientsList:
     def __init__(self):
         self.clients = list()
 
+    def __iter__(self):
+        self.clients_iterator = iter(self.clients)
+        return self
+
+    def __next__(self):
+        while True:
+            client = next(self.clients_iterator)
+            if client["is_active"]:
+                return client["pesel"]
+
     def add_client(self, pesel: str):
         self.clients.append({"pesel": pesel, "is_active": True})
 
@@ -26,3 +36,13 @@ class ClientsList:
             if self.clients[i]["pesel"] == pesel:
                 self.clients[i]["is_active"] = False
                 break
+
+
+if __name__ == '__main__':
+    list_of_clients = ClientsList()
+    list_of_clients.add_client(11223309876)
+    list_of_clients.add_client(33221167890)
+    list_of_clients.add_client(66554454321)
+    list_of_clients.remove_client(33221167890)
+    for c in list_of_clients:
+        print(c)
