@@ -1,7 +1,7 @@
-# lab4
+# lab3
 # Napisz manager contextu wspierający operacje na bazie danych w naszym przypadku sqllite
 # https://docs.python.org/3/library/sqlite3.html
-# /tests/context_manager/test_lab4.py
+# /tests/context_manager/test_lab3.py
 import sqlite3
 from contextlib import contextmanager
 
