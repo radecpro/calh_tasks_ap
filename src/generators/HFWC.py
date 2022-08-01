@@ -7,5 +7,12 @@ funkcji na przykład:
 """
 
 
-def even_numbers(n):
-    pass
+def even_numbers(n: int):
+    for i in range(n + 1):
+        if i % 2 == 0 and i % 3 != 0:
+            yield i
+
+
+if __name__ == '__main__':
+    for even in even_numbers(15):
+        print(even)
